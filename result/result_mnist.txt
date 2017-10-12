@@ -1,0 +1,66 @@
+st login: Fri Oct 13 07:08:07 on ttys002
+Teturou-MacPro:~ tetsurou$ cd Develop/git/MachineLearning/
+Teturou-MacPro:MachineLearning tetsurou$ ls
+Untitled.ipynb		mnist_mip_cnn.py
+mnist_mip.py		result
+Teturou-MacPro:MachineLearning tetsurou$ python mnist_mip.py
+Using TensorFlow backend.
+60000 train samples
+10000 test samples
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_1 (Dense)              (None, 512)               401920
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_2 (Dense)              (None, 512)               262656
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_3 (Dense)              (None, 512)               262656
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_4 (Dense)              (None, 10)                5130
+=================================================================
+Total params: 932,362
+Trainable params: 932,362
+Non-trainable params: 0
+_________________________________________________________________
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/500
+2017-10-13 07:20:04.720035: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+60000/60000 [==============================] - 16s - loss: 0.2691 - acc: 0.9152 - val_loss: 0.1193 - val_acc: 0.9640
+Epoch 2/500
+60000/60000 [==============================] - 15s - loss: 0.1127 - acc: 0.9668 - val_loss: 0.0900 - val_acc: 0.9747
+Epoch 3/500
+60000/60000 [==============================] - 15s - loss: 0.0861 - acc: 0.9752 - val_loss: 0.0765 - val_acc: 0.9806
+Epoch 4/500
+60000/60000 [==============================] - 15s - loss: 0.0747 - acc: 0.9794 - val_loss: 0.0731 - val_acc: 0.9798
+Epoch 5/500
+60000/60000 [==============================] - 15s - loss: 0.0678 - acc: 0.9816 - val_loss: 0.0962 - val_acc: 0.9778
+Epoch 6/500
+60000/60000 [==============================] - 15s - loss: 0.0605 - acc: 0.9838 - val_loss: 0.1022 - val_acc: 0.9789
+Epoch 7/500
+60000/60000 [==============================] - 15s - loss: 0.0617 - acc: 0.9850 - val_loss: 0.0914 - val_acc: 0.9790
+Epoch 8/500
+60000/60000 [==============================] - 15s - loss: 0.0543 - acc: 0.9863 - val_loss: 0.1122 - val_acc: 0.9778
+Epoch 9/500
+60000/60000 [==============================] - 15s - loss: 0.0554 - acc: 0.9875 - val_loss: 0.1083 - val_acc: 0.9782
+Epoch 10/500
+60000/60000 [==============================] - 15s - loss: 0.0520 - acc: 0.9876 - val_loss: 0.1313 - val_acc: 0.9798
+Epoch 11/500
+60000/60000 [==============================] - 15s - loss: 0.0579 - acc: 0.9875 - val_loss: 0.1040 - val_acc: 0.9821
+Epoch 12/500
+60000/60000 [==============================] - 15s - loss: 0.0507 - acc: 0.9884 - val_loss: 0.1002 - val_acc: 0.9817
+Epoch 13/500
+60000/60000 [==============================] - 15s - loss: 0.0493 - acc: 0.9891 - val_loss: 0.1153 - val_acc: 0.9789
+Epoch 14/500
+60000/60000 [==============================] - 15s - loss: 0.0513 - acc: 0.9894 - val_loss: 0.1180 - val_acc: 0.9815
+Epoch 15/500
+60000/60000 [==============================] - 15s - loss: 0.0514 - acc: 0.9897 - val_loss: 0.1224 - val_acc: 0.9830
+Epoch 16/500
+60000/60000 [==============================] - 15s - loss: 0.0545 - acc: 0.9893 - val_loss: 0.1163 - val_acc: 0.9818
+Epoch 17/500
+56960/60000 [===========================>..] - ETA: 0s - loss: 0.0514 - acc: 0.9895
