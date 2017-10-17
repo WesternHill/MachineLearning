@@ -37,7 +37,7 @@ if __name__ == "__main__":
     testimg_rootdir = "./roadsign/test"
 
     # CONFIG - fitting behavior
-    epoch = 1500
+    epoch = 50
     batch_size = 100
     validation_split = 0.2
 
@@ -108,18 +108,18 @@ if __name__ == "__main__":
     model = Sequential()
 
     ## CNN - input layer
-    model.add(Conv2D(filters=32,
-                    kernel_size=(4,4),
-                    strides=(1,1),
-                    activation='relu',
-                    padding='valid',
-                    input_shape=(img_w,img_h,img_ch)))
+    model.add(Conv2D(filters=256,  # Apply 256 filters
+                    kernel_size=(4,4), # Filter size = 4*4
+                    strides=(1,1), # Filter shift = 1*1 every times
+                    activation='relu', # Activation Func = ReLU
+                    padding='valid', # Padding around the edge of image
+                    input_shape=(img_w,img_h,img_ch))) # Input Layer = img_w,img_h,img_ch
 
     ## CNN - Conv-layer and Pooling-layer
     model.add(Conv2D(filters=128,kernel_size=(3,3),activation='relu'))
     model.add(Conv2D(filters=128,kernel_size=(3,3),activation='relu'))
-    model.add(MaxPooling2D(pool_size=(3,3)))
-    model.add(Dropout(0.2))
+    model.add(MaxPooling2D(pool_size=(3,3))) # Apply MaxPooling at each 3*3 pixel
+    model.add(Dropout(0.2)) # 20% of network will be disconnected.
 
     model.add(Conv2D(filters=64,kernel_size=(2,2),activation='relu'))
     model.add(Conv2D(filters=64,kernel_size=(2,2),activation='relu'))
@@ -127,11 +127,11 @@ if __name__ == "__main__":
     model.add(Dropout(0.2))
 
     # Fully-connected layer
-    model.add(Flatten())
+    model.add(Flatten()) # Convert 2D array to 1D array in order to Apply Fully-Connected Layer
     model.add(Dense(32,activation='relu'))
     model.add(Dropout(0.2))
 
-    model.add(Dense(2,activation="softmax"))
+    model.add(Dense(2,activation="softmax")) # Output Layer with activation func "softmax"
 
     model.compile(loss=keras.losses.categorical_crossentropy,
                   optimizer=keras.optimizers.Adadelta(),
@@ -139,7 +139,9 @@ if __name__ == "__main__":
 
     model.summary() #For debug. Show summary
 
-    history = model.fit(np_train_img,train_lblbin,batch_size=batch_size,
+    history = model.fit(np_train_img,train_lblbin,
+                        epochs=epoch
+                        batch_size=batch_size,
                         validation_split=validation_split,
                         verbose=1,
                         validation_data=(np_test_img,test_lblbin)
